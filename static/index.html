@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crunchyroll - Watch Popular Anime</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Bangers&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-left">
+            <a href="#" class="logo">
+                <svg class="cr-icon" viewBox="0 0 24 24" width="28" height="28">
+                    <path fill="#F47521" d="M2.933 13.467a10.55 10.55 0 1 1 21.067-.8V12c0-6.627-5.373-12-12-12S0 5.373 0 12s5.373 12 12 12c.8 0 1.6-.08 2.373-.227a10.536 10.536 0 0 1-11.44-10.306z"/>
+                    <path fill="#F47521" d="M14.533 18.267a5.6 5.6 0 1 1 5.6-5.6c0 1.947-.987 3.667-2.493 4.667a3.2 3.2 0 1 0-3.107.933z"/>
+                </svg>
+                <span>Crunchyroll</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#">New</a>
+                <a href="#">Popular</a>
+                <a href="#">Simulcast</a>
+                <a href="#" class="dropdown">Categories <span class="caret">▼</span></a>
+                <a href="#">Manga</a>
+                <a href="#">Games</a>
+                <a href="#" class="dropdown">News <span class="caret">▼</span></a>
+            </nav>
+        </div>
+
+        <div class="nav-right">
+            <!-- Search Input Box (Toggled) -->
+            <input type="text" id="search-input" class="search-input hidden" placeholder="Search anime...">
+            <button class="icon-btn" id="search-btn" title="Search">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button class="icon-btn" id="watchlist-nav-btn" title="Watchlist">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+            </button>
+            <button class="icon-btn profile-btn" title="Account">
+                <span class="profile-avatar">A</span>
+                <span class="caret">▼</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Banner Carousel -->
+    <section class="hero-section" id="hero-section">
+        <div class="hero-backdrop" id="hero-backdrop"></div>
+        <div class="hero-gradient-left"></div>
+        <div class="hero-gradient-bottom"></div>
+
+        <!-- Left / Right Carousel Arrows -->
+        <button class="carousel-arrow left" id="prev-slide">&#10094;</button>
+        <button class="carousel-arrow right" id="next-slide">&#10095;</button>
+
+        <div class="hero-content">
+            <div class="anime-logo-box">
+                <h1 class="stylized-logo" id="hero-logo">DRAGON BALL</h1>
+                <div class="sub-logo-bar">
+                    <span class="sub-logo" id="hero-sublogo">BEERUS</span>
+                    <span class="super-tag">SUPER</span>
+                </div>
+            </div>
+
+            <div class="hero-meta">
+                <span class="rating-badge" id="hero-rating">U/A 13+</span>
+                <span class="dot">•</span>
+                <span id="hero-audio">Subtitled</span>
+                <span class="dot">•</span>
+                <span id="hero-genres">Action, Adventure, Fantasy, Shonen</span>
+            </div>
+
+            <p class="hero-description" id="hero-desc">
+                Loading description...
+            </p>
+
+            <div class="hero-actions">
+                <button class="btn-primary" id="watch-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    <span id="hero-btn-text">START WATCHING E1</span>
+                </button>
+                <button class="btn-bookmark" id="hero-bookmark-btn" title="Add to Watchlist">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Carousel Pagination Indicators -->
+            <div class="carousel-indicators" id="carousel-indicators"></div>
+        </div>
+    </section>
+
+    <!-- Trending Section -->
+    <main class="main-container">
+        <h2 class="section-title">Trending Anime in India</h2>
+        <div class="anime-grid" id="trending-grid">
+            <!-- Populated dynamically via JS -->
+        </div>
+    </main>
+
+    <!-- Floating Bottom-Right Character Avatar Widget -->
+    <div class="floating-promo" id="floating-promo">
+        <button class="close-promo" id="close-promo">&#10005;</button>
+        <div class="promo-avatar-ring">
+            <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=200&auto=format&fit=crop" alt="Promo Character">
+        </div>
+        <div class="promo-counter">🔥 20</div>
+    </div>
+
+    <!-- Watchlist Modal -->
+    <div class="modal-overlay hidden" id="watchlist-modal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>My Watchlist</h3>
+                <button id="close-modal" class="close-modal-btn">&#10005;</button>
+            </div>
+            <div id="watchlist-items" class="watchlist-items"></div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

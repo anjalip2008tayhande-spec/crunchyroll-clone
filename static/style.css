@@ -1,0 +1,482 @@
+:root {
+    --cr-orange: #f47521;
+    --cr-orange-hover: #ff8533;
+    --bg-black: #000000;
+    --nav-bg: #23252b;
+    --text-white: #ffffff;
+    --text-muted: #dadada;
+    --badge-bg: #3c3e44;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-black);
+    color: var(--text-white);
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 60px;
+    background-color: var(--nav-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--cr-orange);
+    font-weight: 900;
+    font-size: 1.35rem;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-links a:hover {
+    color: var(--text-white);
+}
+
+.caret {
+    font-size: 0.65rem;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+}
+
+.icon-btn:hover {
+    color: var(--text-white);
+}
+
+.profile-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 4px;
+    border: 1.5px solid var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+.search-input {
+    background: #141519;
+    border: 1px solid var(--cr-orange);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    outline: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 540px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+    overflow: hidden;
+}
+
+.hero-backdrop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 75%;
+    height: 100%;
+    background-size: cover;
+    background-position: center top;
+    transition: background-image 0.5s ease-in-out;
+    z-index: 1;
+}
+
+.hero-gradient-left {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #000000 32%, rgba(0,0,0,0.75) 55%, rgba(0,0,0,0) 85%);
+    z-index: 2;
+}
+
+.hero-gradient-bottom {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, #000000 5%, rgba(0,0,0,0) 35%);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 460px;
+}
+
+.anime-logo-box {
+    margin-bottom: 18px;
+}
+
+.stylized-logo {
+    font-family: 'Bangers', cursive;
+    font-size: 3.4rem;
+    letter-spacing: 2px;
+    background: linear-gradient(180deg, #ffe600 10%, #ff5100 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0px 3px 0px #000);
+    line-height: 1;
+}
+
+.sub-logo-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.sub-logo {
+    font-family: 'Bangers', cursive;
+    font-size: 1.8rem;
+    color: #cbd5e1;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 0 #4c1d95;
+}
+
+.super-tag {
+    background: #0284c7;
+    color: #fff;
+    font-weight: 900;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 3px;
+    border: 1px solid #facc15;
+}
+
+.hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: #a1a1aa;
+    margin-bottom: 14px;
+}
+
+.rating-badge {
+    background-color: var(--badge-bg);
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+
+.hero-description {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: #e4e4e7;
+    margin-bottom: 24px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 36px;
+}
+
+.btn-primary {
+    background-color: var(--cr-orange);
+    color: #000;
+    font-weight: 900;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    border: none;
+    padding: 12px 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover {
+    background-color: var(--cr-orange-hover);
+}
+
+.btn-bookmark {
+    background: transparent;
+    border: 2px solid var(--cr-orange);
+    color: var(--cr-orange);
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-bookmark.active, .btn-bookmark:hover {
+    background: rgba(244, 117, 33, 0.15);
+}
+
+.btn-bookmark.active svg {
+    fill: var(--cr-orange);
+}
+
+/* Carousel Arrows & Indicators */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 12px;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+}
+
+.carousel-arrow:hover {
+    opacity: 1;
+}
+
+.carousel-arrow.left { left: 15px; }
+.carousel-arrow.right { right: 15px; }
+
+.carousel-indicators {
+    display: flex;
+    gap: 8px;
+}
+
+.indicator-pill {
+    width: 24px;
+    height: 4px;
+    background-color: #52525b;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.indicator-pill.active {
+    width: 38px;
+    background-color: var(--cr-orange);
+}
+
+/* Main Trending Section */
+.main-container {
+    padding: 10px 60px 80px;
+    position: relative;
+    z-index: 4;
+}
+
+.section-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 20px;
+}
+
+.anime-card {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.anime-card:hover {
+    transform: translateY(-4px);
+}
+
+.poster-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #18181b;
+}
+
+.poster-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-ribbon {
+    position: absolute;
+    top: 0;
+    right: 8px;
+    color: var(--cr-orange);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+}
+
+.anime-card-title {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.anime-card-meta {
+    font-size: 0.8rem;
+    color: #a1a1aa;
+    margin-top: 3px;
+}
+
+/* Floating Avatar Widget */
+.floating-promo {
+    position: fixed;
+    bottom: 24px;
+    right: 28px;
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.close-promo {
+    align-self: flex-end;
+    background: #ffffff;
+    color: #000;
+    border: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    font-weight: 900;
+    cursor: pointer;
+    margin-bottom: -10px;
+    z-index: 2;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.promo-avatar-ring {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.85);
+    cursor: pointer;
+}
+
+.promo-avatar-ring img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.promo-counter {
+    margin-top: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    background: rgba(0,0,0,0.8);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-box {
+    background: var(--nav-bg);
+    width: 90%;
+    max-width: 480px;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #3f3f46;
+    padding-bottom: 10px;
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.watchlist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.watchlist-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #141519;
+    padding: 10px 14px;
+    border-radius: 4px;
+}
